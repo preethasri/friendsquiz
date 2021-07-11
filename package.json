@@ -12,6 +12,7 @@
   "dependencies": {
     "@dxcli/screen": "0.0.2",
     "array-group-str-omit-num-char": "^4.0.16",
+    "chalk": "^4.1.1",
     "const": "^1.0.0",
     "enquirer": "^2.3.6",
     "get-stdin": "^9.0.0",

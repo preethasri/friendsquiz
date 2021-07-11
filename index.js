@@ -1,9 +1,12 @@
+const chalk=require("chalk")
 const readline=require("readline")
-const project = readline.createInterface({
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-const quiz=[
+console.log(chalk.red("Hii!! Welcome to friends quiz"))
+console.log(chalk.green("Take this quiz and know more about Friends series"))
+const quizquestions=[
   {
     question:
   `who is the lobster of ross
@@ -38,22 +41,22 @@ const quiz=[
     answer:"b"
   },
 ]
-let questionindex=0
-console.log("welcome to FRIENDS quiz" );
-function friends()
+let questionindex=0;
+
+function question()
 {
-  project.question(quiz[questionindex].question,(answer)=>{
-  console.log(`you answered:${answer}`)
-  if(answer.toLowerCase()== quiz[questionindex].answer.toLowerCase())
+  rl.question(quizquestions[questionindex].question,(answer)=>{
+  console.log(chalk.yellow(`you answered:${answer}`))
+  if(answer.toLowerCase()== quizquestions[questionindex].answer.toLowerCase())
     {
-    console.log("right answer")
+    console.log(chalk.green("right answer"))
     questionindex++
     serve()
     }
   else{
-    console.log("wrong answer")
+    console.log(chalk.red("wrong answer"))
     console.log("try again")
-    friends();
+    question();
   }
 }) 
 }
@@ -62,29 +65,28 @@ function serve()
   if(isend())
   {
     console.log("thanks for playing")
-    project.close()
+    rl.close()
 
   }
     else{
-     project.question("what do u want to do\n press e to exit,any other key to continue....",
+     rl.question("what do u want to do\n press e to exit,any other key to continue....\n",
      (choice)=>{
        console.log(`you selected ${choice}`)
     if(choice.toLowerCase()!="e")
       {
-         friends()
+         question()
       }
     else
       {
         console.log("thanks for playing.....")
-        project.close()
+        rl.close()
       }
     });
   }
 }
-function 
-    isend()
+function isend()
 {
-  if(quiz.length==questionindex)
+  if(quizquestions.length==questionindex)
   {
     return true;
 
