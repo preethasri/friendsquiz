@@ -1,20 +1,15 @@
-let readlineSync = require('readline-sync')
-const chalk=require("chalk")
-const readline=require("readline")
+const chalk=require('chalk');
+const readline=require('readline');
 
-const rl = readline.createInterface({
+
+const rl=readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-console.log(chalk.red(" Welcome to friends quiz"))
-var nameofuser=readlineSync.question("hii your sweet name please..\n");
-console.log("Hello", nameofuser);
-
-console.log(chalk.green("Take this quiz and know more about Friends series"))
-
 
 var score=0;
+
 const quizquestions=[
   {
     question:
@@ -59,24 +54,28 @@ const quizquestions=[
     answer:"b"
   }
 ]
+console.log(chalk.green("welcome\n"))
+console.log(chalk.red("Are you a fan of friends series. take a quiz and have fun"));
+
+
+
 let questionindex=0;
 
 function question()
 {
-  
   rl.question(quizquestions[questionindex].question,(answer)=>{
   console.log(chalk.yellow(`you answered:${answer}`))
   if(answer.toLowerCase()== quizquestions[questionindex].answer.toLowerCase())
     {
     console.log(chalk.green("right answer"))
-    score++
     questionindex++
+    score++;
     serve()
     }
   else{
     console.log(chalk.red("wrong answer"))
     console.log("try again")
-    console.log("your score is :",score)
+    console.log("your score is:",score)
     question();
   }
 }) 
@@ -85,7 +84,7 @@ function serve()
 {
   if(isend())
   {
-    console.log("thanks for playing. your final score is",score)
+    console.log("Thanks for playing your final score is",score)
     rl.close()
 
   }
@@ -110,7 +109,9 @@ function isend()
   if(quizquestions.length==questionindex)
   {
     return true;
-
+     
   }
+
+ 
 }
 serve()
