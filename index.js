@@ -1,11 +1,19 @@
+let readlineSync = require('readline-sync')
 const chalk=require("chalk")
 const readline=require("readline")
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-console.log(chalk.red("Hii!! Welcome to friends quiz"))
+
+console.log(chalk.red(" Welcome to friends quiz"))
+var nameofuser=readlineSync.question("hii your sweet name please..\n");
+console.log("Hello", nameofuser);
+
 console.log(chalk.green("Take this quiz and know more about Friends series"))
+
+
 var score=0;
 const quizquestions=[
   {
@@ -55,6 +63,7 @@ let questionindex=0;
 
 function question()
 {
+  
   rl.question(quizquestions[questionindex].question,(answer)=>{
   console.log(chalk.yellow(`you answered:${answer}`))
   if(answer.toLowerCase()== quizquestions[questionindex].answer.toLowerCase())
