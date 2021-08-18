@@ -6,6 +6,7 @@ const rl = readline.createInterface({
 });
 console.log(chalk.red("Hii!! Welcome to friends quiz"))
 console.log(chalk.green("Take this quiz and know more about Friends series"))
+var score=0;
 const quizquestions=[
   {
     question:
@@ -20,7 +21,7 @@ const quizquestions=[
   `who is the roommate of chandler
   a:monica
   b:phoebe
-  c:joey/n`,
+  c:joey\n`,
     answer:"c"
   },
     
@@ -40,6 +41,15 @@ const quizquestions=[
   c:honeybuny\n`,
     answer:"b"
   },
+  {
+    
+    question:
+  `monica and chandler marry in which season
+  a:season4
+  b:season7
+  c:season10\n`,
+    answer:"b"
+  }
 ]
 let questionindex=0;
 
@@ -50,12 +60,14 @@ function question()
   if(answer.toLowerCase()== quizquestions[questionindex].answer.toLowerCase())
     {
     console.log(chalk.green("right answer"))
+    score++
     questionindex++
     serve()
     }
   else{
     console.log(chalk.red("wrong answer"))
     console.log("try again")
+    console.log("your score is :",score)
     question();
   }
 }) 
@@ -64,7 +76,7 @@ function serve()
 {
   if(isend())
   {
-    console.log("thanks for playing")
+    console.log("thanks for playing. your final score is",score)
     rl.close()
 
   }
