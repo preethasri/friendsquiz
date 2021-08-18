@@ -1,12 +1,13 @@
 const chalk=require('chalk');
-const readline=require('readline');
 
+const readline=require('readline');
 
 
 const rl=readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 
 
 var score=0;
@@ -55,8 +56,11 @@ const quizquestions=[
     answer:"b"
   }
 ]
+
 console.log(chalk.green("welcome\n"))
+
 console.log(chalk.red("Are you a fan of friends series. take a quiz and have fun"));
+
 
 
 
@@ -115,4 +119,5 @@ function isend()
 
  
 }
+
 serve()
